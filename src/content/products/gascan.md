@@ -38,17 +38,17 @@ images: [
   }
 ]
 
-full_description: 'Description'
-price: {amount: '120', currencyCode: 'USD'}
+full_description: 'The BOICOT Gas Can Bag is a versatile, top-tube bag designed to keep your touring or bikepacking essentials within easy reach. This compact bag is perfect for carrying tools, snacks, and other small gear that you need to access quickly while on the road. Made from high-quality, waterproof materials, the BOICOT Gas Can Bag is built to withstand the rigors of touring and is designed to stay in place on your bike, no matter how bumpy the road gets.'
+price: {amount: '40', currencyCode: 'USD'}
 details: 'details'
 rating: 4.5
 reviews: 2
 variants: [{
   id: 'custom',
-  title: 'BOICOT custom',
+  title: 'BOICOT gas can',
   availableForSale: true,
   quantityAvailable: 10,
-  priceV2: {amount: '120', currencyCode: 'USD'},
+  priceV2: {amount: '40', currencyCode: 'USD'},
 }]
 ---
 ## Compact Convenience

@@ -39,6 +39,8 @@ const firstVariant = product.data.variants[0];
               title={product.title}
               price={firstVariant?.priceV2}
               description={product.data.full_description}
+              reviewCount={product.data.reviews}
+              rating={product.data.rating}
             />
             <div class="mt-10">
               <!-- <AddToCartForm

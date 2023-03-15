@@ -8,8 +8,10 @@ export interface Props {
   price?: z.infer<typeof MoneyV2Result>;
   title: string;
   description: string;
+  reviewCount: number;
+  rating: number;
 }
-const { price, title, description } = Astro.props as Props;
+const { price, title, description, reviewCount, rating } = Astro.props as Props;
 ---
 
 <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
@@ -94,8 +96,10 @@ const { price, title, description } = Astro.props as Props;
           clip-rule="evenodd"></path>
       </svg>
     </div>
-    <p class="sr-only">4 out of 5 stars</p>
-    <div class="ml-3 text-sm font-medium text-emerald-900">117 reviews</div>
+    <p class="sr-only">{rating} out of 5 stars</p>
+    <div class="ml-3 text-sm font-medium text-emerald-900">
+      {reviewCount} reviews
+    </div>
   </div>
 </div>
 
