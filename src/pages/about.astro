@@ -4,6 +4,8 @@ import { Picture } from "@astrojs/image/components";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -15,17 +17,25 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="desc">We are a one person shop (for now).</Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+        Local expertise, global reach.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        BOICOT LLC, founded in the cycling haven of Boise, Idaho, has been
+        producing top-quality frame bags that are trusted and used by cyclists
+        throughout the Pacific Northwest. Now, with the launch of our website,
+        we're thrilled to bring our unique and durable frame bags to cycling
+        enthusiasts everywhere. Whether you're an experienced tourer or just
+        starting out, our bags are designed to make your journey easier and more
+        enjoyable.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Join the BOICOT community today and experience the difference for
+        yourself!
       </p>
     </div>
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
@@ -39,7 +49,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
                 sizes="(max-width: 800px) 100vw, 400px"
                 widths={[200, 400]}
                 aspectRatio="1:1"
-                background="#ffffff"
+                background="#E5E1DE"
                 fit="cover"
                 position="center"
                 class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl"
@@ -47,9 +57,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
             </div>
 
             <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">
-                {teamMemberEntry.data.name}
-              </h2>
+              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
               <h3 class="text-sm text-slate-500">
                 {teamMemberEntry.data.title}
               </h3>
@@ -57,6 +65,12 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
           </div>
         ))
       }
+    </div>
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <p class="text-lg leading-relaxed text-slate-500">
+        We are always looking for talented seamstresses to help make our bags.
+        Don't hesitate to reach out if you're interested.
+      </p>
     </div>
   </Container>
 </Layout>

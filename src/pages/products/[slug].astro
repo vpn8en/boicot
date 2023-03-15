@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../assets/scss/astro-ecommerce.scss";
+import { getCollection } from "astro:content";
+import ProductBreadcrumb from "@components/shop/ProductBreadcrumb.astro";
+import ProductImageGallery from "@components/shop/ProductImageGallery.astro";
+import ProductInformations from "@components/shop/ProductInformations.astro";
+import AddToCartForm from "@components/shop/AddToCartForm.svelte";
+import TechnicalSpecs from "@components/shop/TechnicalSpecs.astro";
+import ProductRecommendations from "@components/shop/ProductRecommendations.astro";
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection("products");
+  return productEntries.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+// Get the entry directly from the prop on render
+const { product } = Astro.props;
+
+const firstVariant = product.data.variants[0];
+---
+
+<Layout title="Product Page">
+  <main>
+    <div class="container">
+      <div class="pt-6">
+        <ProductBreadcrumb title={product.title} />
+      </div>
+      <section>
+        <div
+          class="pb-16 pt-6 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:pb-24">
+          <div class="lg:col-span-2">
+            <ProductImageGallery images={product.data.images} />
+          </div>
+          <div class="mt-4 lg:row-span-3 lg:mt-0">
+            <ProductInformations
+              title={product.title}
+              price={firstVariant?.priceV2}
+              description={product.data.full_description}
+            />
+            <div class="mt-10">
+              <!-- <AddToCartForm
+                client:load
+                variantId={firstVariant?.id}
+                variantQuantityAvailable={firstVariant?.quantityAvailable}
+                variantAvailableForSale={firstVariant?.availableForSale}
+              /> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <TechnicalSpecs images={product.data.images} />
+      <!-- <section>
+        <ProductRecommendations productId={product.id} buyerIP={ip} />
+      </section> -->
+    </div>
+  </main>
+</Layout>
