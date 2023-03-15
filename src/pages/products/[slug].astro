@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import "../../assets/scss/astro-ecommerce.scss";
 import { getCollection } from "astro:content";
 import ProductBreadcrumb from "@components/shop/ProductBreadcrumb.astro";
 import ProductImageGallery from "@components/shop/ProductImageGallery.astro";
@@ -25,9 +24,9 @@ const firstVariant = product.data.variants[0];
 
 <Layout title="Product Page">
   <main>
-    <div class="container">
+    <div class="container w-11/12 mx-auto">
       <div class="pt-6">
-        <ProductBreadcrumb title={product.title} />
+        <!-- <ProductBreadcrumb title={product.title} /> -->
       </div>
       <section>
         <div
